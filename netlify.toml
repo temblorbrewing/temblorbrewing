@@ -1,0 +1,39 @@
+[build]
+  publish = "."
+
+[[redirects]]
+  from = "/apply"
+  to = "/careers.html"
+  status = 301
+
+[[redirects]]
+  from = "/apply/"
+  to = "/careers.html"
+  status = 301
+
+[[redirects]]
+  from = "/food-menu"
+  to = "/menu.html"
+  status = 301
+
+[[redirects]]
+  from = "/food-menu/"
+  to = "/menu.html"
+  status = 301
+
+[[redirects]]
+  from = "/private-events"
+  to = "/private-events.html"
+  status = 301
+
+[[redirects]]
+  from = "/careers"
+  to = "/careers.html"
+  status = 301
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

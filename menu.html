@@ -138,16 +138,214 @@ a,button,[role="button"]{transition:color .18s cubic-bezier(.16,1,.3,1),backgrou
 
 /* ─── TAP LIST ─── */
 #tap-list{background:var(--sf2)}
-.untappd-wrap{background:var(--sf);border:1px solid var(--bd);border-radius:1rem;overflow:hidden;min-height:400px}
+.untappd-wrap{background:transparent;border:none;border-radius:0;overflow:visible;min-height:400px}
 .untappd-loading{display:flex;flex-direction:column;align-items:center;justify-content:center;
   padding:var(--s16);gap:var(--s4);color:var(--txm)}
 .untappd-logo{display:flex;align-items:center;gap:var(--s3);margin-bottom:var(--s4)}
 .spinner{width:32px;height:32px;border:3px solid var(--bd);border-top-color:var(--cp);
   border-radius:50%;animation:spin 1s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-/* Override Untappd widget styles to match dark theme */
-#menu-container{color-scheme:dark}
-#menu-container .menu{background:transparent!important}
+/* ─── UNTAPPD WIDGET OVERRIDES ─── */
+/* Force all backgrounds to match site dark surfaces */
+#menu-container,
+#menu-container .ut-menu,
+#menu-container .inner-container,
+#menu-container .menu-bg-color,
+#menu-container .item-bg-color,
+#menu-container .section,
+#menu-container .menu-items-container,
+#menu-container .menu-item,
+#menu-container .item,
+#menu-container .section-header-bg-color,
+#menu-container .header-bg-color,
+#menu-container .footer-bg-color{
+  background:transparent!important;
+  background-color:transparent!important;
+}
+
+/* Hide the Untappd header (logo, address, phone) — we have that info already */
+#menu-container .menu-header,
+#menu-container .menu-footer,
+#menu-container .powered-ut,
+#menu-container .label-image-hideable{
+  display:none!important;
+}
+
+/* Nav tabs — styled like site's tab pills */
+#menu-container .menu-nav{
+  background:transparent!important;
+  border-bottom:1px solid var(--bd)!important;
+  margin-bottom:var(--s6)!important;
+  padding:0!important;
+}
+#menu-container .menu-list{
+  display:flex!important;
+  gap:var(--s2)!important;
+  padding:0 0 var(--s3) 0!important;
+  list-style:none!important;
+  flex-wrap:wrap!important;
+}
+#menu-container .menu-list-item a,
+#menu-container .tab-anchor{
+  display:inline-block!important;
+  padding:var(--s2) var(--s5)!important;
+  border-radius:9999px!important;
+  font-size:var(--txx)!important;
+  font-weight:700!important;
+  letter-spacing:.1em!important;
+  text-transform:uppercase!important;
+  color:var(--txm)!important;
+  border:1px solid var(--bd)!important;
+  text-decoration:none!important;
+  transition:all .18s ease!important;
+  background:transparent!important;
+}
+#menu-container .tab-anchor.active,
+#menu-container .tab-anchor:hover{
+  background:var(--cp)!important;
+  color:#000!important;
+  border-color:var(--cp)!important;
+}
+
+/* Section headings */
+#menu-container .section-heading{
+  padding:var(--s6) 0 var(--s3) 0!important;
+  margin-bottom:var(--s4)!important;
+  border-bottom:1px solid var(--bd)!important;
+}
+#menu-container .section-name{
+  font-family:var(--fp)!important;
+  font-size:var(--txl)!important;
+  font-weight:700!important;
+  color:#fff!important;
+  letter-spacing:.05em!important;
+  margin:0 0 var(--s2) 0!important;
+}
+#menu-container .section-description{
+  font-size:var(--txx)!important;
+  color:var(--txm)!important;
+  border:none!important;
+  margin:0!important;
+  padding:0!important;
+}
+
+/* Menu title & updated date */
+#menu-container .menu-title{
+  display:none!important;
+}
+#menu-container .date-time{
+  font-size:var(--txx)!important;
+  color:var(--txf)!important;
+  margin-bottom:var(--s4)!important;
+  padding-bottom:var(--s4)!important;
+  border-bottom:1px solid var(--bd)!important;
+}
+
+/* Individual beer items — card layout */
+#menu-container .menu-items-container{
+  display:grid!important;
+  grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr))!important;
+  gap:var(--s4)!important;
+  padding:0!important;
+  margin-bottom:var(--s6)!important;
+}
+#menu-container .menu-item{
+  background:var(--sf)!important;
+  border:1px solid var(--bd)!important;
+  border-radius:var(--s3)!important;
+  padding:var(--s4) var(--s5)!important;
+  transition:border-color .18s ease, box-shadow .18s ease!important;
+}
+#menu-container .menu-item:hover{
+  border-color:var(--cp)!important;
+  box-shadow:0 4px 16px rgba(0,220,196,.08)!important;
+}
+#menu-container .item{
+  width:100%!important;
+  float:none!important;
+}
+
+/* Beer name */
+#menu-container .item-name{
+  font-family:var(--fp)!important;
+  font-size:var(--txs)!important;
+  font-weight:700!important;
+  margin:0 0 var(--s2) 0!important;
+  line-height:1.3!important;
+}
+#menu-container .item-name a,
+#menu-container .item-title-color,
+#menu-container .item-title-color a{
+  color:#fff!important;
+  text-decoration:none!important;
+}
+#menu-container .item-name a:hover{
+  color:var(--cp)!important;
+}
+
+/* Style & category badge */
+#menu-container .item-style{
+  display:inline-block!important;
+  font-family:var(--fb)!important;
+  font-size:var(--txx)!important;
+  font-weight:600!important;
+  letter-spacing:.08em!important;
+  text-transform:uppercase!important;
+  color:var(--cp)!important;
+  margin-left:var(--s2)!important;
+}
+#menu-container .item-category{
+  color:var(--cp)!important;
+}
+
+/* ABV / IBU pills */
+#menu-container .item-meta{
+  display:flex!important;
+  flex-wrap:wrap!important;
+  gap:var(--s2)!important;
+  margin:var(--s2) 0!important;
+}
+#menu-container .item-abv,
+#menu-container .item-ibu{
+  display:inline-block!important;
+  background:rgba(0,220,196,.1)!important;
+  color:var(--cp)!important;
+  border-radius:9999px!important;
+  padding:2px var(--s3)!important;
+  font-size:var(--txx)!important;
+  font-weight:700!important;
+  letter-spacing:.06em!important;
+}
+
+/* Description */
+#menu-container .item-description{
+  font-size:var(--txx)!important;
+  color:var(--txm)!important;
+  line-height:1.55!important;
+  margin-top:var(--s2)!important;
+}
+
+/* Price */
+#menu-container .container-list{
+  margin-top:var(--s3)!important;
+  padding-top:var(--s3)!important;
+  border-top:1px solid var(--bd)!important;
+  font-size:var(--txx)!important;
+  color:var(--txm)!important;
+}
+
+/* Show more / less links */
+#menu-container .ut-more,
+#menu-container .ut-less{
+  color:var(--cp)!important;
+  font-size:var(--txx)!important;
+}
+
+/* Remove clearfix floats */
+#menu-container .clearfix::after{ display:none!important; }
+#menu-container .pull-left{ float:none!important; }
+#menu-container .padding-left,
+#menu-container .padding-right{ padding:0!important; }
 
 /* ─── WINE & COCKTAILS ─── */
 .drinks-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s6)}

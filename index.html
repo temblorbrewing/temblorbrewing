@@ -85,11 +85,21 @@ p,li{text-wrap:pretty;max-width:72ch}
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:var(--s2) var(--s6);background:rgba(10,10,10,.88);backdrop-filter:blur(12px);border-bottom:1px solid var(--bd)}
 .nav-logo img{width:155px;height:auto}
 .nav-links{display:flex;gap:var(--s6);list-style:none}
+.nav-actions{display:flex;align-items:center;gap:var(--s3)}
+.nav-links a,.nav-cta{white-space:nowrap}
+.nav-logo,.nav-actions{flex-shrink:0}
+.nav{gap:var(--s6)}
+@media(max-width:1440px){.nav{padding:var(--s2) var(--s4)}.nav-logo img{width:130px}.nav-links{gap:var(--s4)}.nav-links a{font-size:.8rem;letter-spacing:.03em}.nav-cta{font-size:.8rem;padding:var(--s2) var(--s3)}.nav-actions{gap:var(--s2)}}
+@media(max-width:1280px){.nav{gap:var(--s4)}.nav-logo img{width:110px}.nav-links{gap:var(--s3)}.nav-links a{font-size:.72rem;letter-spacing:.02em}.nav-cta{font-size:.74rem}}
+@media(max-width:1200px){.nav-links{display:none}}
+@media(max-width:768px){.nav-actions{gap:var(--s2)}.nav-cta{font-size:.75rem;padding:var(--s2) var(--s3)}}
 .nav-links a{text-decoration:none;font-size:var(--txs);font-weight:500;color:var(--txm);letter-spacing:.05em;text-transform:uppercase}
 .nav-links a:hover{color:var(--cp)}
 .nav-cta{background:var(--cp);color:#000;padding:var(--s2) var(--s4);border-radius:.5rem;font-size:var(--txs);font-weight:700;text-decoration:none}
 .nav-cta:hover{background:#00f5e8}
 @media(max-width:768px){.nav-links{display:none}.nav-logo img{width:105px}}
+@media(max-width:560px){.nav{padding:var(--s2) var(--s3)}.nav-logo img{width:84px}.nav-actions{align-items:stretch;flex-shrink:1;min-width:0}.nav-cta{white-space:normal;text-align:center;font-size:.74rem;line-height:1.25;padding:var(--s2);display:flex;align-items:center;justify-content:center}}
+@media(max-width:380px){.nav-logo img{width:70px}.nav-cta{font-size:.68rem}}
 .hero{position:relative;height:100vh;min-height:600px;display:flex;align-items:center;justify-content:center;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.52)}
 .hero-ov{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.15) 0%,rgba(0,0,0,.55) 100%)}
@@ -186,8 +196,10 @@ footer{background:var(--sf);border-top:1px solid var(--bd);padding:var(--s12) va
     <li><a href="#visit">Visit</a></li>
     <li><a href="careers.html">Careers</a></li>
   </ul>
-  <a href="https://www.toasttab.com/temblor-brewing-company-3200-buck-owens-blvd/rewardsLookup" target="_blank" rel="noopener noreferrer" class="nav-cta" style="margin-right:var(--s2);background:transparent;border:1px solid var(--cp);color:var(--cp)">Toast Customer Rewards</a>
+  <div class="nav-actions">
+  <a href="https://www.toasttab.com/temblor-brewing-company-3200-buck-owens-blvd/rewardsLookup" target="_blank" rel="noopener noreferrer" class="nav-cta" style="background:transparent;border:1px solid var(--cp);color:var(--cp)">Toast Customer Rewards</a>
   <a href="private-events.html" class="nav-cta">Book a Private Event</a>
+  </div>
 </nav>
 
 <section class="hero">
